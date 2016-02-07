@@ -7,7 +7,7 @@ var api_route = require('./routes/api.js');
 
 var app = express();
 
-var mongodb_uri = 'mongodb://thomasij813:fccmongodb@ds059165.mongolab.com:59165/fcc-thomasij813';
+var mongodb_uri = 'mongodb://thomasij813:mongo@apollo.modulusmongo.net:27017/Yzo4wago';
 mongoose.connect(mongodb_uri);
 
 var port = process.env.PORT || 3000;
