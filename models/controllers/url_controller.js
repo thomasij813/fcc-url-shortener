@@ -38,3 +38,22 @@ exports.getAll = function(req, res) {
     }
   });
 };
+
+exports.findAndRedirect = function(req, res) {
+  Url.findOne({ '_id': req.params.urlId }, function(err, data) {
+    if (err)
+      res.send(err);
+    else
+      res.redirect(data.url);
+  });
+};
+
+exports.deleteAll = function(req, res) {
+  Url.remove({}, function(err) {
+    if (err) {
+      res.send(err);
+    } else {
+      res.send("All records have been deleted");
+    }
+  });
+};

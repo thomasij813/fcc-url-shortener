@@ -8,14 +8,6 @@ router.get('/all', urlController.getAll);
 
 router.get('/new/:url(*)', urlController.saveUrl);
 
-router.get('/delete_all', function(req, res) {
-  Url.remove({}, function(err) {
-    if (err) {
-      res.send(err);
-    } else {
-      res.send("All records have been deleted");
-    }
-  });
-});
+router.get('/delete_all', urlController.deleteAll);
 
 module.exports = router;
