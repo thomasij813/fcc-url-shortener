@@ -7,9 +7,7 @@ var api_route = require('./routes/api.js');
 
 var app = express();
 
-var mongodb_uri = process.env.MONGOLAB_URI;
-mongoose.connect(mongodb_uri);
-
+mongoose.connect(process.env.MONGOLAB_URI);
 var port = process.env.PORT || 3000;
 
 app.set('views', path.join(__dirname, 'views'));
