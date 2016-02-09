@@ -7,7 +7,7 @@ var api_route = require('./routes/api.js');
 
 var app = express();
 
-var mongoUri = 'mongodb://heroku_h85gcvlv:kes8b1a2bb8cs6rfn167p6n57j@ds059125.mongolab.com:59125/heroku_h85gcvlv';
+var mongoUri = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL;
 mongoose.connect(mongoUri);
 var port = process.env.PORT || 5000;
 
