@@ -11,12 +11,12 @@ html
         hr
         p This application fulfills the #[a(href="http://www.freecodecamp.com/challenges/url-shortener-microservice") third API Basejump] as part of Free Code Camp's JavaScript curriculum.
         h3 Instructions
-        p Send a GET request containing a url to<code>#{locals.protocol}://#{locals.hostname}/new/#{'<url>'}</code> to received a JSON object containing the original url and a shortend url. Visiting the shortened url will redirect your browser to the original url.
+        p Send a GET request containing a url to<code>#{locals.protocol}://#{locals.hostname}/new/#{'<url>'}</code> to receive a JSON object containing the original url and a shortend url. Visiting the shortened url will redirect your browser to the original url.
         h3 Example
         p The following request:
         p
           code #{locals.protocol}://#{locals.hostname}/new/https://www.google.com
-        p will return a response resembling the folowing:
+        p will return a response resembling the following:
         p
           code { "original_url": "https://www.google.com", "shortened_url": "#{locals.protocol}://#{locals.hostname}/VkE_-BZcg" }
       .row.text-center
