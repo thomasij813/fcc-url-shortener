@@ -8,6 +8,6 @@ router.get('/', function(req, res, next) {
   res.render('index');
 });
 
-router.get('/:urlId', urlController.findAndRedirect);
+//router.get('/:urlId', urlController.findAndRedirect);
 
 module.exports = router;

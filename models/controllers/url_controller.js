@@ -18,7 +18,7 @@ exports.getAll = function(req, res) {
       res.json(urls.map(function(url) {
         return {
           original_url: url.url,
-          shortened_url: 'https://www.' + req.hostname + '/' + url._id
+          shortened_url: 'https://www.' + req.hostname + '/re/' + url._id
         };
       }));
     }
@@ -51,12 +51,12 @@ function saveUrl(url, req, res) {
       err = err.toJSON();
       res.json({
         original_url: err.op.url,
-        shortened_url: 'https://www.'+ req.hostname + '/' + err.op._id
+        shortened_url: 'https://www.'+ req.hostname + '/re/' + err.op._id
       });
     } else {
       res.json({
         original_url: url.url,
-        shortened_url: 'https://www.'+ req.hostname + '/' + url._id
+        shortened_url: 'https://www.'+ req.hostname + '/re/' + url._id
       });
     }
   });
