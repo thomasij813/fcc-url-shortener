@@ -10,6 +10,6 @@ router.get('/new/:url(*)', urlController.saveUrl);
 
 router.get('/delete_all', urlController.deleteAll);
 
-router.get('/re/:urlId', urlController.findAndRedirect);
+//router.get('/re/:urlId', urlController.findAndRedirect);
 
 module.exports = router;
