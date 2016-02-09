@@ -12,10 +12,16 @@ exports.saveUrl = function(req, res) {
 
 exports.findAndRedirect = function(req, res) {
   Url.findOne({ '_id': req.params.urlId }, function(err, data) {
-    if (err)
-      res.send(err);
-    else
+    if (err){
+      return res.send(err);
+    } else if (data === null) {
+      res.json({
+        message: 'The url shortener you requested has not been assigned to a url yet',
+        url_shortener: req.params.urlId
+      });
+    } else {
       res.redirect(data.url);
+    }
   });
 };
 
