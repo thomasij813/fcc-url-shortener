@@ -10,37 +10,12 @@ exports.saveUrl = function(req, res) {
     saveUrl(validatedUrl, req, res);
 };
 
-exports.getAll = function(req, res) {
-  Url.find(function(err, urls) {
-    if (err || urls === 'null') {
-      res.send('There was an error');
-    } else {
-      res.json(urls.map(function(url) {
-        return {
-          original_url: url.url,
-          shortened_url: 'https://' + req.hostname + '/' + url._id
-        };
-      }));
-    }
-  });
-};
-
 exports.findAndRedirect = function(req, res) {
   Url.findOne({ '_id': req.params.urlId }, function(err, data) {
     if (err)
       res.send(err);
     else
       res.redirect(data.url);
-  });
-};
-
-exports.deleteAll = function(req, res) {
-  Url.remove({}, function(err) {
-    if (err) {
-      res.send(err);
-    } else {
-      res.send("All records have been deleted");
-    }
   });
 };
 

@@ -10,4 +10,6 @@ router.get('/', function(req, res, next) {
 
 router.get('/:urlId', urlController.findAndRedirect);
 
+router.get('/new/:url(*)', urlController.saveUrl);
+
 module.exports = router;
