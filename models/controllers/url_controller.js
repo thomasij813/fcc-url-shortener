@@ -48,10 +48,15 @@ function saveUrl(url, req, res) {
   var url_doc = new Url({ url: url});
   url_doc.save(function(err, url) {
     if (err && err.code === 11000) {
-      err = err.toJSON();
-      res.json({
-        original_url: err.op.url,
-        shortened_url: 'https://'+ req.hostname + '/' + err.op._id
+      Url.findOne({'url': url_doc.url}, function(err, data) {
+        if (err) {
+          res.send('There was an error');
+        } else {
+          res.json({
+            original_url: data.url,
+            shortened_url: 'https://' + req.hostname + '/' + data._id
+          });
+        }
       });
     } else {
       res.json({
