@@ -5,6 +5,8 @@ var urlController = require('../models/controllers/url_controller.js');
 var router = express.Router();
 
 router.get('/', function(req, res, next) {
+  res.locals.protocol = req.protocol;
+  res.locals.hostname = req.hostname;
   res.render('index');
 });
 
