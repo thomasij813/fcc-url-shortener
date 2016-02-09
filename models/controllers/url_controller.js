@@ -12,8 +12,8 @@ exports.saveUrl = function(req, res) {
 
 exports.getAll = function(req, res) {
   Url.find(function(err, urls) {
-    if (err) {
-      res.send(err);
+    if (err || urls === 'null') {
+      res.send('There was an error');
     } else {
       res.json(urls.map(function(url) {
         return {

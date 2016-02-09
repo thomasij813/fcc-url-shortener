@@ -9,7 +9,7 @@ var app = express();
 
 var mongoUri = process.env.MONGOLAB_URI || 'mongodb://localhost/test';
 mongoose.connect(mongoUri);
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 5000;
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
